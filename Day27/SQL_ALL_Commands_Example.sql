@@ -1,0 +1,118 @@
+show databases;
+create database dypdb;
+show databases;
+use dypdb;
+CREATE TABLE EMPLOYEE (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    dept VARCHAR(50),
+    salary DECIMAL(10,2),
+    city VARCHAR(50),
+    hire_date DATE
+);
+INSERT INTO EMPLOYEE VALUES
+(1, 'Aman', 'IT', 70000, 'Delhi', '2023-01-10'),
+(2, 'Rohan', 'HR', 50000, 'Mumbai', '2022-05-15'),
+(3, 'Anita', 'IT', 60000, 'Bangalore', '2021-03-20'),
+(4, 'Karan', 'Finance', 45000, 'Chennai', '2020-07-12'),
+(5, 'Arjun', 'HR', 30000, 'Delhi', '2023-08-01'),
+(6, 'Rahul', 'IT', NULL, 'Bangalore', '2022-09-18');
+
+SELECT * FROM EMPLOYEE;
+SELECT name, salary FROM EMPLOYEE;
+SELECT DISTINCT dept FROM EMPLOYEE;
+SELECT * FROM EMPLOYEE
+WHERE dept = 'IT';
+SELECT * FROM EMPLOYEE
+WHERE salary > 50000;
+
+SELECT * FROM EMPLOYEE
+WHERE city = 'Bangalore';
+
+SELECT * FROM EMPLOYEE
+WHERE dept = 'IT' AND salary > 60000;
+
+SELECT * FROM EMPLOYEE
+WHERE dept = 'IT' OR dept = 'HR';
+
+SELECT * FROM EMPLOYEE
+WHERE salary BETWEEN 40000 AND 70000;
+
+SELECT * FROM EMPLOYEE
+WHERE hire_date > '2022-01-01';
+
+SELECT * FROM EMPLOYEE
+WHERE city IN ('Delhi','Mumbai','Chennai');
+
+SELECT * FROM EMPLOYEE
+WHERE salary != 30000;
+
+SELECT * FROM EMPLOYEE
+WHERE name LIKE 'A%';
+
+SELECT * FROM EMPLOYEE
+WHERE name LIKE 'A%';
+
+SELECT * FROM EMPLOYEE
+WHERE name LIKE '%ra%';
+
+SELECT * FROM EMPLOYEE
+WHERE salary IS NULL;
+
+SELECT * FROM EMPLOYEE
+ORDER BY salary ASC;
+
+SELECT * FROM EMPLOYEE
+ORDER BY hire_date DESC;
+
+SELECT COUNT(*) FROM EMPLOYEE;
+
+
+SELECT MAX(salary) FROM EMPLOYEE;
+
+SELECT MIN(salary) 
+FROM EMPLOYEE
+WHERE dept = 'IT';
+
+SELECT AVG(salary) FROM EMPLOYEE;
+
+SELECT SUM(salary) 
+FROM EMPLOYEE
+WHERE dept = 'HR';
+
+SELECT dept, SUM(salary)
+FROM EMPLOYEE
+GROUP BY dept;
+
+SELECT dept, AVG(salary)
+FROM EMPLOYEE
+GROUP BY dept;
+
+SELECT dept, COUNT(*)
+FROM EMPLOYEE
+GROUP BY dept;
+
+SELECT dept, COUNT(*)
+FROM EMPLOYEE
+GROUP BY dept
+HAVING COUNT(*) > 5;
+
+SELECT dept, AVG(salary)
+FROM EMPLOYEE
+GROUP BY dept
+HAVING AVG(salary) > 60000;
+
+UPDATE EMPLOYEE
+SET salary = 60000
+WHERE emp_id = 7;
+
+DELETE FROM EMPLOYEE
+WHERE emp_id =6 ;
+
+
+
+
+
+
+
+
